@@ -1,0 +1,15 @@
+{
+  "name": "birth-manage",
+  "version": "1.0.0",
+  "description": "love and friendship",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LonHon",
+  "license": "MIT",
+  "dependencies": {
+    "node-schedule": "^1.3.0",
+    "request": "^2.88.0"
+  }
+}
