@@ -87,7 +87,7 @@ async function scaner() {
       result.push({
         name: item.name,
         day: n,
-        msg: `@${item.name}_${n}天`
+        msg: `@${item.name}_${n || '今'}天`
       })
     }
   }
