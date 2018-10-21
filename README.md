@@ -12,27 +12,31 @@
 ### 用到的东西
 主要使用： Node + [Server酱][2]，建议搭配pm2来使用
 
-注册Server酱账号、扫码绑定微信号、关注接收消息的公众号
+注册Server酱账号、扫码绑定微信号、关注接收消息的公众号、**获取发送消息的url**
 ### 使用方法
 #### 步骤1
 ```
 git clone https://github.com/LonHon/birth-manage.git
 ```
 #### 步骤2
-data/ 下添加data.json，格式如下(isLunar:0为农历生日，1为公历)：
+data/ 下添加data.json，格式如下(type:0或空为农历，1为公历)：
 ```
 [
-    {"name":"女朋友A","birth":"2000/9/8", "isLunar": 1},
-    {"name":"女朋友B","birth":"2000/9/9", "isLunar": 0},
+    {"name":"女朋友A","birth":"2000/9/8", "type": 1},
+    {"name":"女朋友B","birth":"2000/9/9"},
+    {"name":"女朋友C","birth":"2000/9/10", "type": 0}
 ]
 ```
-func/scaner.js 中添加Server酱发送消息的url
 #### 步骤3
+func/scaner.js 中添加Server酱发送消息的url
+
+#### 步骤4
 ```
 npm install
 
 node index.js
 ```
+这里可以先在index.js中注释关闭定时器，检测是否能正常发送消息.
 
 #### 项目代码主要功能：
 1. data/data.json 提供生日数据
@@ -51,8 +55,8 @@ node index.js
 可以提供免费挂服务，限10位，需要的可以把Server酱的key和data.json发到我的邮箱 lonhontop@gmail.com
 
 TODO：
-1. 目前只有农历生日判断，需添加一个公历生日的判断
-2. 做个分级？比如A级，提前7天提醒，B级提前3天，C级当天提醒。
+* [x] 1. 目前只有农历生日判断，需添加一个公历生日的判断
+* [ ] 2. 做个分级？比如A级，提前7天提醒，B级提前3天，C级当天提醒。
 
 
   [1]: https://i.loli.net/2018/10/19/5bc979a5a5253.png
