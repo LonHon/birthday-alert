@@ -47,7 +47,7 @@ function getData() {
 function dateDiff(today, birth) {
   let diff = 999
   if (birth[0] === today[1]) {
-    diff = birth[1] - today[2]    
+    diff = birth[1] - today[2]
   } else if ((birth[0] - today[1] === 1) || (birth[0] === 1 && today[1] === 12)) {
     // 隔月 or 隔年
     const now = new Date(today[0], today[1]-1, today[2])
@@ -68,7 +68,7 @@ function nextBirthday(birth, type = 0) {
     const d = parseInt(birthArr[2])
     // 获取今日公历or农历
     const today = type === 0 ?
-      [TODAY_LUNAR.data.lunarMonth, TODAY_LUNAR.data.lunarDay]
+      [(new Date()).getFullYear(),TODAY_LUNAR.data.lunarMonth, TODAY_LUNAR.data.lunarDay]
       :
       [(new Date()).getFullYear(), (new Date()).getMonth() +1, (new Date()).getDate()]
     resolve(dateDiff(today, [m, d]))

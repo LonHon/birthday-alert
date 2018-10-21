@@ -11,7 +11,6 @@ async function main() {
       content: ''
     }
     scaner().then(list => {
-      console.log(list)
       if (list.length > 0) {
         for (const l of list) {
           sentMsg.content += `${l.msg}，`
