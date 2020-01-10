@@ -1,28 +1,15 @@
-
 const path = require('path') //系统路径模块
 const fs = require('fs') //文件模块
-const request = require('request')
+const LunarCalendar = require('lunar-calendar')
 
 let TODAY_LUNAR = null
 
 // 获取今日农历信息
 function getTodayLunar () {
-  const opt = {
-    url: 'https://www.sojson.com/open/api/lunar/json.shtml',
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
-    }
-  }
-  return new Promise((resolve, reject) => {
-    request.get(opt, (err, res, body) => {
-      if (!err && res.statusCode == 200) {
-        TODAY_LUNAR = JSON.parse(body)
-        resolve()
-      } else {
-        console.log(err)
-      }
-    })
-  })
+ return new Promise((resolve, reject) => {
+   TODAY_LUNAR = LunarCalendar.solarToLunar(2020, 1, 10)
+   resolve()
+ })
 }
 
 // 读取json文件
@@ -39,7 +26,7 @@ function getData() {
   })
 }
 
-/* 判断两个日期差 
+/* 判断两个日期差
 *  @da = [12, 31],
 *  @db = [1, 3]
 *  ruturn 4
@@ -68,7 +55,7 @@ function nextBirthday(birth, type = 0) {
     const d = parseInt(birthArr[2])
     // 获取今日公历or农历
     const today = type === 0 ?
-      [(new Date()).getFullYear(),TODAY_LUNAR.data.lunarMonth, TODAY_LUNAR.data.lunarDay]
+      [(new Date()).getFullYear(),TODAY_LUNAR.lunarMonth, TODAY_LUNAR.lunarDay]
       :
       [(new Date()).getFullYear(), (new Date()).getMonth() +1, (new Date()).getDate()]
     resolve(dateDiff(today, [m, d]))

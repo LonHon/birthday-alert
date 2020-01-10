@@ -5,7 +5,7 @@ const schedule = require('node-schedule')
 
 
 async function main() {
-  // schedule.scheduleJob('0 30 7 * * *', () => {
+  //schedule.scheduleJob('0 30 7 * * *', () => {
     const sentMsg = {
       title: '',
       content: ''
@@ -17,11 +17,11 @@ async function main() {
         }
         senter(sentMsg)
       } else {
-        sentMsg.title = '今天也是充满希望的一天~'
-        senter(sentMsg)
+        //sentMsg.title = '今天也是充满希望的一天~'
+        //senter(sentMsg)
         // 暂时屏蔽
       }
     })
-  // })
+  //})
 }
 main()
