@@ -1,15 +1,20 @@
 const path = require('path') //系统路径模块
 const fs = require('fs') //文件模块
-const LunarCalendar = require('lunar-calendar')
+const {Solar} = require('lunar-javascript')
 
 let TODAY_LUNAR = null
 
 // 获取今日农历信息
 function getTodayLunar () {
- return new Promise((resolve, reject) => {
-   TODAY_LUNAR = LunarCalendar.solarToLunar(2020, 1, 10)
-   resolve()
- })
+  return new Promise((resolve, reject) => {
+    let solar = Solar.fromDate(new Date());
+    const data = solar.getLunar()._p;
+    TODAY_LUNAR = {
+      lunarMonth: data.month,
+      lunarDay: data.day
+    }
+    resolve();
+  })
 }
 
 // 读取json文件
@@ -74,7 +79,7 @@ async function scaner() {
       result.push({
         name: item.name,
         day: n,
-        msg: `@${item.name}_${n || '今'}天`
+        msg: `${item.name}${n}`
       })
     }
   }
