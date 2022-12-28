@@ -1,11 +1,7 @@
 const scaner = require('./func/scaner.js')
 const senter = require('./func/senter.js')
 
-const schedule = require('node-schedule')
-
-
 async function main() {
-  // schedule.scheduleJob('0 30 7 * * *', () => {
     const sentMsg = {
       title: '',
       content: ''
@@ -22,6 +18,5 @@ async function main() {
         // 暂时屏蔽
       }
     })
-  // })
 }
 main()
