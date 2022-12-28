@@ -38,4 +38,5 @@ jobs:
       - name: Working
         env:
           SERVERCHAN_SECRETKEY: ${{ secrets.SERVERCHAN_SECRETKEY }}
+          BIRTH_DATA: ${{ secrets.BIRTH_DATA }}
         run: node index.js

@@ -20,14 +20,10 @@ function getTodayLunar () {
 // 读取json文件
 function getData() {
   return new Promise((resolve, reject) => {
-    const file = path.join(__dirname, '../data/data.json')
-    fs.readFile(file, 'utf-8', function(err, data) {
-      if (err) {
-        console.log(err)
-      } else {
-        resolve(data)
-      }
-    })
+    const str = process.env.BIRTH_DATA;
+    console.log(typeof process.env.BIRTH_DATA);
+    if (!str) reject('无数据');
+    resolve(str)
   })
 }
 
