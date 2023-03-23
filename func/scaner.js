@@ -21,7 +21,6 @@ function getTodayLunar () {
 function getData() {
   return new Promise((resolve, reject) => {
     const str = process.env.BIRTH_DATA;
-    console.log(typeof process.env.BIRTH_DATA);
     if (!str) reject('无数据');
     resolve(str)
   })
