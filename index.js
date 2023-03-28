@@ -16,6 +16,8 @@ async function main() {
     }
     console.log(sentMsg);
     senter(sentMsg)
+  }).catch(e => {
+    console.log('scaner error: ', e);
   })
 }
 main()
