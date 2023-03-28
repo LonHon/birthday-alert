@@ -14,7 +14,7 @@
 
 ### 使用方法
 #### 步骤1
-f....fork me for free
+f....fork me for free?
 
 #### 步骤2
 回到自己fork的项目下，Settings/secrets 下添加 BIRTH_DATA 和 SERVERCHAN_SECRETKEY
