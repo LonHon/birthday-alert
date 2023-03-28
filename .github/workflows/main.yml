@@ -6,12 +6,16 @@ name: "Birth Alert Bot"
 # events but only for the bot branch
 on:
   push:
-    # branches: [ bot ]
-  pull_request:
-    branches: [ bot ]
+    branches: [ master ]
   schedule:
     # 01 + 8
     - cron: '0 1 * * *'
+    
+  # 手动触发事件
+  workflow_dispatch:
+    inputs:
+      dispatch:
+        description: 'Test dispatch'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
